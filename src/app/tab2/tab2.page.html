@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My Activity
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-col size="12" class="cp-mt-4">
+      <ion-item>
+        <ion-label>Fitness</ion-label>
+        <ion-select value="Fitness"  (ionChange)="onChange($event)"    >
+          <ion-select-option value="Walking">Walking</ion-select-option>
+          <ion-select-option value="Swimming">Swimming</ion-select-option>
+          <ion-select-option value="Jogging">Jogging</ion-select-option>
+          <ion-select-option value="Running">Running</ion-select-option>
+          <ion-select-option value="Yoga">Yoga</ion-select-option>
+          <ion-select-option value="Cycling">Cycling</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <br> -->
+    <div *ngIf="isHideShow">
+    
+      <div *ngFor="let item of jsonItems; let i = index">
+    
+        <div class="card-wide card">
+          <ion-grid padding>
+            <ion-row>
+             <ion-col size="6">
+               <p style="font-size:x-small;"><i class="fa fa-heartbeat fa-2x "></i>&nbsp;&nbsp;FITNESS</p>
+               <span class="colorRed" style="padding-left: 20px;">&nbsp;{{item.fitnessMode}}</span>
+             </ion-col>
+             <ion-col size="6">
+               <p style="font-size:x-small;"><i class="fa fa-book fa-2x "></i>&nbsp;&nbsp;CHAPTER NAME</p>
+               <span class="colorRed" style="padding-left: 25px;">{{item.chap_name}}</span>
+             </ion-col>
+   
+             <ion-col size="6">
+               <p style="font-size:x-small;"><i class="fa fa-codiepie fa-2x "></i>&nbsp;&nbsp;CATEGORY</p>
+               <span class="colorRed" style="padding-left: 25px;">{{item.category}}</span>
+             </ion-col>
+             <ion-col size="6">
+               <p style="font-size:x-small;"><i class="fa fa-child fa-2x "></i>&nbsp;&nbsp;{{fitnessMode(item.fitnessMode)}}</p>
+               <span class="colorRed"style="padding-left: 20px;">{{item.Totalcount}}</span>
+             </ion-col>
+   
+           </ion-row>
+         </ion-grid>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div *ngIf="isHideShow" >
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header" style="border-bottom-style: solid !important;"  >
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;"  >
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;"  >
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;"  >
+              <ion-label><b>CHAPTER NAME</b></ion-label>
+            </ion-col>
+            <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;"  >
+              <ion-label><b>CATEGORY</b></ion-label>
+            </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;"  >
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists" style="border-bottom-style: solid !important;" >
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+              <ion-label>{{item.chap_name}}</ion-label>
+            </ion-col>
+            <ion-col col-3>
+              <ion-label>{{item.category}}</ion-label>
+            </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div> -->
+</ion-content>

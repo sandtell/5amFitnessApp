@@ -1,0 +1,17 @@
+.validation-errors{
+    color:red;
+}
+.cp-brand{
+    width: 10em;
+    height: 5em;
+    margin: auto;
+    img{
+        width: 100%;
+        border-radius: 20px;
+        // box-shadow: 4px 10px 15px 0px #dcdcdc;
+    }
+}
+
+ion-content.background{
+    --background: url('/assets/img/background/login.png')40% 40%/110% 110% no-repeat  ;
+}

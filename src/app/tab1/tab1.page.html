@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Welcome, {{userName}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="logOutFn()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">      
+        <div class="card-square card" (click)="openModal('walking.png', 'Walking')">
+          <img src="assets/walking.png" style="height: 100px;" alt="" />
+          <p>Walking</p>
+        </div>
+      
+        <div class="card-square card" (click)="openModal('jogging.png', 'Jogging')">
+          <img src="assets/jogging.png" style="height: 100px;" alt="" />
+          <p>Jogging</p>
+        </div>
+      
+        <div class="card-square card"  (click)="openModal('yoga.png','Yoga')">
+          <img src="assets/yoga.png" style="height: 100px;" alt="" />
+          <p>Yoga</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="card-square card" (click)="openModal('swimming.png', 'Swimming')">
+          <img src="assets/swimming.png" style="height: 100px;" alt="" />
+          <p>Swimming</p>
+        </div>
+        <div class="card-square card"  (click)="openModal('running.png','Running')">
+          <img src="assets/running.png" style="height: 100px;" alt="" />
+          <p>Running</p>
+        </div>
+        <div class="card-square card" (click)="openModal('bicycle.png','Cycling')">
+          <img src="assets/bicycle.png" style="height: 100px;" alt="" />
+          <p>Cycling</p>
+        </div>
+      </ion-col>
+   </ion-row>
+   </ion-grid>
+</ion-content>

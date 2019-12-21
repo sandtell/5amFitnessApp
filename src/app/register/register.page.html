@@ -1,0 +1,276 @@
+<ion-content >
+  <img src="assets/img/background/signup.png"  style=" width: 100%;height: auto;"  alt="">
+  <ion-grid>     
+    <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+
+      
+      <ion-row class="cp-mt-2">
+
+
+        <ion-col size="12">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" formControlName="username" >
+              <i matSuffix class="fa fa-user"></i>
+              <mat-hint>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.username">
+                    <div class="error-message"
+                      *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-hint>
+            </mat-form-field>
+          </ion-item>
+         
+        </ion-col>
+  
+   
+       
+        <ion-col size="12">
+          <ion-item  class="ion-padding-start ion-padding-end">
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Relative</ion-label>
+            <ion-select   value="Relative" okText="Okay" cancelText="Dismiss" formControlName="relative"   (ionChange)="relativeOnChange($event)"  >
+              <ion-select-option value="Father">Father</ion-select-option>
+              <ion-select-option value="Mother">Mother</ion-select-option>
+              <ion-select-option value="Sister">Sister</ion-select-option>
+              <ion-select-option value="Brother">Brother</ion-select-option>
+              <ion-select-option value="">None</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+
+
+
+        <ion-col size="12"  *ngIf="isHideMember">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Chapter Member Name</mat-label>
+              <input matInput placeholder="Name" formControlName="memberName" >
+              <i matSuffix class="fa fa-user"></i>
+            </mat-form-field>
+          </ion-item>
+          
+        </ion-col>
+
+        
+          <!-- <ion-col size="12" *ngIf="isHideMember">
+            <ion-item>
+              <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Chapter Member Name</ion-label>
+              <ion-input type="text" formControlName="memberName"></ion-input>
+            </ion-item>
+          </ion-col> -->
+          
+        
+
+          <ion-col size="12" >
+            <ion-item lines="none">
+              <mat-form-field style="width: 100%;"  appearance="outline">
+                <mat-label>Member Category</mat-label>
+                <input matInput placeholder="Member Category"  formControlName="category">
+                <i matSuffix class="fa fa-user"></i>
+              </mat-form-field>
+            </ion-item>
+            
+          </ion-col>
+<!-- 
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Member Category
+            </ion-label>
+            <ion-input  type="text" formControlName="category"   ></ion-input>
+          </ion-item>
+        </ion-col> -->
+        <ion-col size="12">
+          <ion-item class="ion-padding-start ion-padding-end">
+            <!-- <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Chapter
+            </ion-label>
+            <ion-input required type="text"></ion-input> -->
+
+            <ion-label position="stacked"  color="cp-text-light" class="cp-text-upper cp-text-light">Chapter</ion-label>
+            <ion-select value="Chapter" okText="Okay" cancelText="Dismiss" formControlName="chapter">
+              <ion-select-option *ngFor="let c of chapterJson" value="{{c.chap_id}}">{{c.chap_name}}</ion-select-option>
+            </ion-select>
+
+
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Mobile</mat-label>
+              <input matInput placeholder="Mobile No" type="number" formControlName="mobileNo" >
+              <i matSuffix class="fa fa-mobile"></i>
+              <mat-hint>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.mobileNo">
+                    <div class="error-message"
+                      *ngIf="validations_form.get('mobileNo').hasError(validation.type) && (validations_form.get('mobileNo').dirty || validations_form.get('mobileNo').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-hint>
+            </mat-form-field>
+          </ion-item>
+         
+        </ion-col>
+
+        <!-- <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Mobile
+            </ion-label>
+            <ion-input type="text" formControlName="mobileNo"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.mobileNo">
+              <div class="error-message"
+                *ngIf="validations_form.get('mobileNo').hasError(validation.type) && (validations_form.get('mobileNo').dirty || validations_form.get('mobileNo').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col> -->
+
+        <ion-col size="12">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email ID" formControlName="email" >
+              <i matSuffix class="fa fa-envelope-o"></i>
+              <mat-hint>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.email">
+                    <div class="error-message"
+                      *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-hint>
+            </mat-form-field>
+          </ion-item>
+          
+        </ion-col>
+
+        <!-- <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Email
+            </ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="error-message"
+                *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col> -->
+
+        
+        <ion-col size="12">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" type="password" formControlName="password" >
+              <i matSuffix class="fa fa-lock"></i>
+              <mat-hint>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.password">
+                    <div class="error-message"
+                      *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-hint>
+            </mat-form-field>
+          </ion-item>
+         
+        </ion-col>
+
+        <!-- <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Password
+            </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message"
+                *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col> -->
+
+        <ion-col size="12">
+          <ion-item lines="none">
+            <mat-form-field style="width: 100%;"  appearance="outline">
+              <mat-label>Weight</mat-label>
+              <input matInput placeholder="Weight" formControlName="weight" >
+              <i matSuffix class="fa fa-wikipedia-w"></i>
+              <mat-hint>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.weight">
+                    <div class="error-message"
+                      *ngIf="validations_form.get('weight').hasError(validation.type) && (validations_form.get('weight').dirty || validations_form.get('weight').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-hint>
+            </mat-form-field>
+          </ion-item>
+         
+        </ion-col>
+
+
+        <!-- <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Weight
+            </ion-label>
+            <ion-input type="text" formControlName="weight"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.weight">
+              <div class="error-message"
+                *ngIf="validations_form.get('weight').hasError(validation.type) && (validations_form.get('weight').dirty || validations_form.get('weight').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col> -->
+
+        <!-- <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Confirm Password
+            </ion-label>
+            <ion-input required type="password"></ion-input>
+          </ion-item>
+        </ion-col> -->
+        <ion-col size="12" text-center class="padding-top">
+          <ion-button text-center shape="round" type="submit" [disabled]="!validations_form.valid"> Let's Go
+         </ion-button>
+       </ion-col>
+
+        <ion-col size="12" class="cp-text-center cp-text-light cp-text-1">
+          <ion-text>Already have an account? <a class="cp-text-bold-600 cp-link" (click)="openPage('/login')">Sign
+              In</a>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </form>
+
+  
+  </ion-grid>
+
+</ion-content>

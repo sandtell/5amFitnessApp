@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>5am Fitness Club</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <!-- <ion-card-header style="display: flex;">
+      <img style="width: 22%;margin-right: 16px;" src="assets/{{icon}}" alt="">
+      <h2 style="font-size: 18px;">{{title}}</h2>
+    </ion-card-header> -->
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-item>
+              <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">
+                <b>Welcome, {{userName}}</b>
+
+              </ion-label>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-item>
+            <ion-label><b>Date</b></ion-label>
+            <b>
+              <ion-datetime  displayFormat="DD/MM/YYYY" disabled value="{{getTodaysDate}}"></ion-datetime>
+            </b>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-item>
+            <ion-label>{{fitnessMode}} Hours</ion-label>
+            <ion-select value="Hours" [(ngModel)]="walkingHours"  (ionChange)="onChange($event)"    >
+              <ion-select-option value="30">30 minutes</ion-select-option>
+              <ion-select-option value="60">1 hour</ion-select-option>
+              <ion-select-option value="90">1 hour and 30 mins</ion-select-option>
+              <ion-select-option value="120">2 hour</ion-select-option>
+              <ion-select-option value="150">2 hour and 30 mins</ion-select-option>
+              <ion-select-option value="180">3 hour</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-item>
+            <ion-label position="stacked"  color="cp-text-light" class="cp-text-upper cp-text-light"><b>{{fitnessType}}</b>
+            </ion-label>
+            <b><ion-input type="text" disabled [(ngModel)]="stepCount" ></ion-input></b>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-item>
+            <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Place of {{fitnessMode}}
+            </ion-label>
+            <ion-input type="text"  [(ngModel)]="placeOfWalking"  (ionChange)="ontextBoxChange($event)"  ></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="cp-mt-4">
+          <ion-button color="cp_primary" class="cp-btn" [disabled]="isBtnEnable" shape="round" expand="full" (click)="saveData()"  >Submit</ion-button>
+        </ion-col>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

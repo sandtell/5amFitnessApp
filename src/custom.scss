@@ -1,0 +1,128 @@
+
+// Margin Top
+.cp-mt-1{
+    margin-top: .5em;
+}
+.cp-mt-2{
+    margin-top: 1em;
+}
+.cp-mt-3{
+    margin-top: 1.5em;
+}
+.cp-mt-4{
+    margin-top: 2em;
+}
+.cp-mt-5{
+    margin-top: 2.5em;
+}
+.cp-mt-6{
+    margin-top: 3em;
+}
+.cp-mt-7{
+    margin-top: 3.5em;
+}
+.cp-mt-8{
+    margin-top: 4em;
+}
+.cp-mt-9{
+    margin-top: 5em;
+}
+.cp-mt-10{
+    margin-top: 6em;
+}
+.cp-mt-11{
+    margin-top: 7em;
+}
+
+
+// Padding
+.cp-p-1{
+    padding: .5em;
+}
+.cp-p-2{
+    padding: 1em;
+}
+.cp-p-3{
+    padding: 1.5em;
+}.cp-p-4{
+    padding: 2em;
+}
+.cp-p-5{
+    padding: 2.5em;
+}
+.cp-p-6{
+    padding: 3em;
+}
+.cp-p-7{
+    padding: 3.5em;
+}
+.cp-p-8{
+    padding: 4em;
+}
+.cp-p-9{
+    padding: 5em;
+}
+.cp-p-10{
+    padding: 6em;
+}
+.cp-p-11{
+    padding: 7em;
+}
+.cp-text-center{
+    text-align: center !important;
+}
+.cp-text-upper{
+    text-transform: uppercase;
+}
+
+.cp-text-bold-600{
+    font-weight: 600;
+}
+
+.cp-text-bold-700{
+    font-weight: 700;
+}
+
+.cp-text-1{
+    font-size: .8em;
+}
+.cp-text-2{
+    font-size: .9em;
+}
+.cp-text-3{
+    font-size: 1em;
+}
+.cp-text-4{
+    font-size: 1.1em;
+}
+.cp-text-5{
+    font-size: 1.2em;
+}
+.cp-text-6{
+    font-size: 1.3em;
+}
+.cp-text-7{
+    font-size: 1.4em;
+}
+
+
+
+.cp-brand{
+    width: 10em;
+    height: 5em;
+    margin: auto;
+    img{
+        width: 100%;
+        border-radius: 20px;
+        // box-shadow: 4px 10px 15px 0px #dcdcdc;
+    }
+}
+.cp-heading{
+    display: block;
+    margin: auto;
+    width: 100%;
+    ion-text{
+        display: block;
+        text-align: center;
+    }
+}

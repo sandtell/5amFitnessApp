@@ -1,0 +1,313 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      LeadBoard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-tab-group (selectedTabChange)="onTabChanged($event);">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Walking
+      </ng-template>
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Swimming
+      </ng-template>
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Jogging
+      </ng-template>
+
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Running
+      </ng-template>
+
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Yoga
+      </ng-template>
+
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Cycling
+      </ng-template>
+
+      <ion-grid class="cp-mt-2">
+        <ion-row class="list-header">
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>SL NO.</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CHAPTER NAME</b></ion-label>
+          </ion-col>
+          <ion-col col-2 style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>CATEGORY</b></ion-label>
+          </ion-col>
+          <ion-col col-2 text-center style="background-color:blueviolet;color:white;font-size: 14px;">
+            <ion-label><b>STEP COUNT</b></ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of jsonItems; let i = index" class="lists">
+          <ion-col col-3 text-center>
+            <ion-label>{{i + 1}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.chap_name}}</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label>{{item.category}}</ion-label>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <ion-label>{{item.Totalcount}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="noRecord" class="lists">
+          <ion-col col-12 text-center>
+            <h6 class="colorRed">No Data Available</h6>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+
+</ion-content>
