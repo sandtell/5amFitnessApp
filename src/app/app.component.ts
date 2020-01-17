@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Network } from '@ionic-native/network/ngx';
 import { Storage } from '@ionic/storage';
 import { AuthenticationService } from './services/authentication.service';
+import { ConfigService } from './services/config.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +25,9 @@ export class AppComponent {
     private network: Network,
     private toastCtrl: ToastController,
     private authenticationService: AuthenticationService,
-    private navController:NavController
+    private navController:NavController,
+    private config  : ConfigService,
+    public http: HttpClient,
   ) {
     this.initializeApp();
   }
@@ -121,6 +125,24 @@ export class AppComponent {
       duration: 2000
     });
     toast.present();
+  }
+  
+  async getMaintainence() {
+    let data: any;
+    const url = this.config.domainURL + 'api/maintenance';    
+    data = this.http.get(url);
+      data.subscribe(result => {
+        console.log(result);
+        if (result.status === "1") {
+          this.presentToast(result.message);         
+        }
+         else if (result.status === "0") {
+          // alert("else");
+          this.presentToast(result.message);
+        }
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

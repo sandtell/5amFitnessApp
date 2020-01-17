@@ -30,10 +30,10 @@
   
    
        
-        <ion-col size="12">
-          <ion-item  class="ion-padding-start ion-padding-end">
+        <ion-col size="12" class="ion-padding" >
+          <ion-item class="dropCss ion-padding-start ion-padding-end" lines="none">
             <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Relative</ion-label>
-            <ion-select   value="Relative" okText="Okay" cancelText="Dismiss" formControlName="relative"   (ionChange)="relativeOnChange($event)"  >
+            <ion-select   value="Relative" okText="Okay" cancelText="Dismiss" formControlName="relative"   (ionChange)="relativeOnChange($event)">
               <ion-select-option value="Father">Father</ion-select-option>
               <ion-select-option value="Mother">Mother</ion-select-option>
               <ion-select-option value="Sister">Sister</ion-select-option>
@@ -67,7 +67,7 @@
           
         
 
-          <ion-col size="12" >
+          <ion-col size="12" class="ion-padding-top" >
             <ion-item lines="none">
               <mat-form-field style="width: 100%;"  appearance="outline">
                 <mat-label>Member Category</mat-label>
@@ -85,8 +85,8 @@
             <ion-input  type="text" formControlName="category"   ></ion-input>
           </ion-item>
         </ion-col> -->
-        <ion-col size="12">
-          <ion-item class="ion-padding-start ion-padding-end">
+        <ion-col size="12" class="ion-padding"  >
+          <ion-item class="dropCss ion-padding-start ion-padding-end" lines="none">
             <!-- <ion-label position="stacked" color="cp-text-light" class="cp-text-upper cp-text-light">Chapter
             </ion-label>
             <ion-input required type="text"></ion-input> -->
@@ -257,14 +257,16 @@
             <ion-input required type="password"></ion-input>
           </ion-item>
         </ion-col> -->
-        <ion-col size="12" text-center class="padding-top">
-          <ion-button text-center shape="round" type="submit" [disabled]="!validations_form.valid"> Let's Go
-         </ion-button>
+        <ion-col size="12" text-center class="padding-top" >
+          <ion-button color="secondary"  type="submit" shape="round" [disabled]="!validations_form.valid">Let's Go</ion-button>
        </ion-col>
 
-        <ion-col size="12" class="cp-text-center cp-text-light cp-text-1">
-          <ion-text>Already have an account? <a class="cp-text-bold-600 cp-link" (click)="openPage('/login')">Sign
-              In</a>
+
+        <ion-col size="12" class="cp-text-center cp-text-1">
+          <ion-text>Already have an account? 
+            <a class="cp-text-bold-600" (click)="openPage('/login')">
+            <ion-text color="secondary" >Sign In </ion-text>
+          </a>
           </ion-text>
         </ion-col>
       </ion-row>

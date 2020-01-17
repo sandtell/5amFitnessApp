@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ConfigService } from '../services/config.service';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -17,15 +18,19 @@ export class Tab3Page {
   constructor(
     public http: HttpClient,
     public loadingCtrl: LoadingController,
-    private config: ConfigService
+    private config: ConfigService,
+    private router: Router,
   ) { 
 
   }
 
   ngOnInit() {
-    this.getData('walking');
+    
   }
 
+  ionViewDidEnter() {
+    this.getData('walking');
+  }
 
   onTabChanged($event) {
     console.log($event.index);
@@ -70,6 +75,8 @@ export class Tab3Page {
 
         if(result.status == "2"){
           this.noRecord = true;
+        }else if (result.status == "4") {
+          this.router.navigateByUrl('maintenance');
         }else{
           this.noRecord = false;
         }

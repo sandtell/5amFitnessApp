@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.syengry.ionic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="5" id="com.syengry.ionic" version="3.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Fitness</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>Fitness</description>
+    <author email="sandtellmobileappcare@gmail.com" href="http://ionicframework.com/">Sandtell Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="28" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
@@ -102,6 +102,5 @@
     <plugin name="cordova-sqlite-storage" spec="^4.0.0" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.2" />
     <allow-navigation href="http://localhost:8102" sessionid="41314f54" />
-    <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.4" />
 </widget>

@@ -3,6 +3,7 @@ import { ConfigService } from '../services/config.service';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -19,6 +20,7 @@ export class Tab2Page {
     private config: ConfigService,
     private storage: Storage,
     public toastController: ToastController,
+    private router: Router,
   ) {
 
   }
@@ -35,6 +37,9 @@ export class Tab2Page {
     this.getActivityData();
   }
 
+  ionViewDidEnter() {
+    this.getActivityData();
+  }
 
   fitnessMode(mode){
     
@@ -77,6 +82,8 @@ export class Tab2Page {
             this.presentToast(result.message);
           } else if (result.status == "1") {
             this.isHideShow = true;
+          } else if (result.status == "4") {
+            this.router.navigateByUrl('maintenance');
           }
 
           loading.dismiss();

@@ -5,6 +5,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { PasswordValidator } from '../password.validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +22,7 @@ export class ProfilePage implements OnInit {
     public toastController: ToastController,
     private config: ConfigService,
     public http: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -91,6 +93,12 @@ export class ProfilePage implements OnInit {
           // alert("else");
           this.presentToast(result.message);
           loading.dismiss();
+        }  else if (result.status === "4") {
+          // alert("else");
+          loading.dismiss();
+          this.presentToast(result.message);
+          this.router.navigateByUrl('maintenance');
+          
         } 
 
         loading.dismiss();

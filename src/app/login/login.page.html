@@ -83,12 +83,16 @@
 
         
         <ion-col size="12" text-center class="padding-top" >
-          <ion-button text-center     shape="round" type="submit"
-            [disabled]="!validations_form.valid">Sign in</ion-button>
+          <ion-button type="submit" color="secondary" shape="round" [disabled]="!validations_form.valid">Sign in</ion-button>
+          <!-- <ion-button text-center     shape="round" type="submit"
+            [disabled]="!validations_form.valid">Sign in</ion-button> -->
         </ion-col>
+
         <ion-col size="12" class="cp-text-center cp-text-light cp-text-1">
-          <ion-text>Don't have an account? <a class="cp-text-bold-600 cp-link" (click)="openPage('/register')">Sign
-              Up</a>
+          <ion-text>Don't have an account? <a class="cp-text-bold-600 cp-link" (click)="openPage('/register')">
+              <ion-text color="secondary">Sign Up
+              </ion-text>
+            </a>
           </ion-text>
         </ion-col>
       </ion-row>

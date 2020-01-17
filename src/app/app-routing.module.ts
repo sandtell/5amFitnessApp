@@ -24,7 +24,11 @@ const routes: Routes = [
   {
     path: 'activity-popup',
     loadChildren: () => import('./activity-popup/activity-popup.module').then( m => m.ActivityPopupPageModule)
+  },  {
+    path: 'maintenance',
+    loadChildren: () => import('./maintenance/maintenance.module').then( m => m.MaintenancePageModule)
   }
+
 ];
 @NgModule({
   imports: [
