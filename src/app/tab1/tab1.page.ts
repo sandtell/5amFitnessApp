@@ -18,6 +18,8 @@ export class Tab1Page {
     private router: Router
   ) {
 
+
+    // console.log(this.constructor.name);
     this.userName = localStorage.getItem('localUserName');
 
     this.storage.get('lsUserName').then((val) => {

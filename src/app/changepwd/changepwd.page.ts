@@ -45,7 +45,10 @@ export class ChangepwdPage implements OnInit {
     this.validations_form = this.formBuilder.group({     
       matching_passwords: this.matching_passwords_group,
       oldpassword: new FormControl('', Validators.compose([
+        Validators.minLength(6),
+        Validators.maxLength(6),
         Validators.required,
+        Validators.pattern('^[0-9]*$')
       ])),
     });
 
@@ -55,7 +58,10 @@ export class ChangepwdPage implements OnInit {
 
   validation_messages = {
     oldpassword: [
-      { type: 'required', message: 'Old Password is required.' },
+      { type: 'required', message: 'OTP is required.' },
+      { type: 'minlength', message: 'OTP must be at least 6' },
+      { type: 'maxlength', message: 'OTP cannot be more than 6' },
+      { type: 'pattern', message: 'Chapter are not allowed' }
     ],
     password: [
       { type: 'required', message: 'Password is required.' },
@@ -71,6 +77,8 @@ export class ChangepwdPage implements OnInit {
   };
 
   async onSubmit(values) { 
+
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
     console.log(values);
 
@@ -93,7 +101,9 @@ export class ChangepwdPage implements OnInit {
       data.subscribe(result => {
         console.log(result); 
 
-        console.log(result.data[0].id);
+        // console.log(result.data[0].id);
+
+        // alert(result.status);
 
         if (result.status === "1") {          
          // this.router.navigateByUrl('changepwd');
@@ -104,10 +114,12 @@ export class ChangepwdPage implements OnInit {
           loading.dismiss();
         }
          else if (result.status === "0") {
+           // alert('else if');
           this.presentToast(result.message);
           loading.dismiss();
         } 
 
+        
         loading.dismiss();
       });
       return loading.present();
@@ -122,7 +134,8 @@ export class ChangepwdPage implements OnInit {
   async presentToast(msg:string) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 2000
+      duration: 2000,
+      showCloseButton : true,
     });
     toast.present();
   }

@@ -1,4 +1,14 @@
 
+.first{
+    background-color: #f7ec96 !important;
+}
+.second {
+    background-color: #96cff7 !important;
+}
+.third {
+    background-color: #f7b196 !important;
+}
+
 .colorRed{
     color:red;
   }
@@ -22,9 +32,16 @@
     width          : 100%;
 }
 
+
+tr th {
+    background: #19398a;
+    color: #fff;
+    // padding: 1rem;
+}
+
 .tbl td,
 .tbl th {
-    border : 1px solid #ddd;
+    // border : 1px solid #ddd;
     padding: 2px;
 }
 

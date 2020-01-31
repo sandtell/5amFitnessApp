@@ -49,8 +49,8 @@ export class AppComponent {
         }
       });
 
-      this.platform.backButton.subscribeWithPriority(0, () => {
-        this.exitFunction('Are you sure you want to Exit App ?');
+      this.platform.backButton.subscribeWithPriority(0, () => {        
+          this.exitFunction('Are you sure you want to Exit App ?');
       });
 
       // watch network for a disconnection
@@ -100,7 +100,8 @@ export class AppComponent {
   async presentToast(msg) {
     const toast = await this.toastCtrl.create({
       message: msg,
-      duration: 2000
+      duration: 2000,
+      showCloseButton : true,
     });
     toast.present();
   }

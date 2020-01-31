@@ -71,7 +71,7 @@ export class Tab3Page {
     loading.present().then(() => {
       data.subscribe(result => {
         console.log(result);
-        this.jsonItems = result.data; 
+        this.jsonItems = result.data;
 
         if(result.status == "2"){
           this.noRecord = true;

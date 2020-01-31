@@ -40,7 +40,8 @@ export class ConfigService {
   async presentToast(msg:string) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 5000
+      duration: 5000,
+      showCloseButton : true,
     });
     toast.present();
   }
