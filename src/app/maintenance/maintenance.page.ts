@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-maintenance',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaintenancePage implements OnInit {
 
-  constructor() { }
+  public maintenanceMSG:string;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.maintenanceMSG = this.activatedRoute.snapshot.paramMap.get('msg');
   }
 
 }

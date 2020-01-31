@@ -15,6 +15,7 @@ import { ActivityPopupPageModule } from './activity-popup/activity-popup.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthenticationService } from './services/authentication.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -33,6 +34,7 @@ import { AuthenticationService } from './services/authentication.service';
     SplashScreen,
     AuthGuardService,
     AuthenticationService,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

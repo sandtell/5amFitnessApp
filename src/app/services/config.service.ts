@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ToastController } from '@ionic/angular';
+import { ToastController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,9 +12,12 @@ export class ConfigService {
   constructor(
     public http: HttpClient,
     public toastController: ToastController,
+    public alertCtrl: AlertController,
     private router: Router,
+    private iab: InAppBrowser
   ) {
     this.getMaintainence();
+    this.checkAppUpdate();
    }
 
   async getMaintainence() {
@@ -24,7 +27,9 @@ export class ConfigService {
       data.subscribe(result => {
         console.log(result);
         if(result.status === "4") {
-          this.router.navigateByUrl('maintenance');
+          // this.router.navigateByUrl('maintenance');
+          // console.log(result.data.message);
+          this.router.navigateByUrl(`/maintenance/${result.data.message}`);
           this.presentToast(result.message);
         }
     }, error => {
@@ -39,5 +44,48 @@ export class ConfigService {
     });
     toast.present();
   }
+
+  async checkAppUpdate() {
+    // alert('if');
+    let data: any;
+    const url = this.domainURL + 'api/version_available';
+    data = this.http.get(url);
+      data.subscribe(result => {
+        console.log(result);
+        // alert(result.url);
+        if(result.status === "1") {          
+          this.alertFunc(result.message, result.data.url);
+        }
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  async alertFunc(msg: string,url:string) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        //   {
+        //   text: 'Cancel',
+        //   role: 'cancel',
+        //   handler: () => {
+
+        //   }
+        // },
+        {
+          text: 'Okay',
+          handler: () => {
+            // 
+            this.iab.create(url,'_system');
+            // console.log('Confirm Okay');
+          }
+        }
+      ]
+
+    });
+
+    await alert.present();
+  }
+
 
 }

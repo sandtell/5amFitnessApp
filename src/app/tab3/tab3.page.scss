@@ -16,3 +16,41 @@
     box-shadow:  0 10px 10px rgba(0,0,0,0.22);
   }
 
+  .tbl {
+    font-family    : "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width          : 100%;
+}
+
+.tbl td,
+.tbl th {
+    border : 1px solid #ddd;
+    padding: 2px;
+}
+
+.tbl tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tbl tr:hover {
+    background-color: #ddd;
+}
+
+.tbl th {
+    text-align: left;
+}
+
+.borderLine {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.ulClass {
+    list-style-type: none;
+    margin         : 0;
+    padding        : 1px;
+    overflow       : hidden;
+}
+
+.liClass {
+    float: left;
+}

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Forgot Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div style="padding-top:40%;">
+
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-row class="cp-mt-2">
+
+      <ion-col size="12">
+        <ion-item lines="none">
+          <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput placeholder="Mobile No" type="text" formControlName="mobileNo">
+            <i matSuffix class="fa fa-mobile"></i>
+            <mat-hint>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.mobileNo">
+                  <div class="error-message"
+                    *ngIf="validations_form.get('mobileNo').hasError(validation.type) && (validations_form.get('mobileNo').dirty || validations_form.get('mobileNo').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </mat-hint>
+          </mat-form-field>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" text-center class="padding-top">
+        <ion-button type="submit" color="secondary" shape="round" [disabled]="!validations_form.valid">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</div>
+</ion-content>

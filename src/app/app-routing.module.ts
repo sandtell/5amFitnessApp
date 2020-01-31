@@ -24,10 +24,20 @@ const routes: Routes = [
   {
     path: 'activity-popup',
     loadChildren: () => import('./activity-popup/activity-popup.module').then( m => m.ActivityPopupPageModule)
-  },  {
-    path: 'maintenance',
+  },
+  {
+    path: 'maintenance/:msg',
     loadChildren: () => import('./maintenance/maintenance.module').then( m => m.MaintenancePageModule)
+  },
+  {
+    path: 'forgotpwd',
+    loadChildren: () => import('./forgotpwd/forgotpwd.module').then( m => m.ForgotpwdPageModule)
+  },
+  {
+    path: 'changepwd/:id',
+    loadChildren: () => import('./changepwd/changepwd.module').then( m => m.ChangepwdPageModule)
   }
+
 
 ];
 @NgModule({
